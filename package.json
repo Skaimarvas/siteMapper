@@ -1,0 +1,28 @@
+{
+    "name": "sitemapper",
+    "version": "1.0.0",
+    "description": "A Node.js CLI tool to crawl a website, validate links, and generate a clean sitemap.xml with only 200-status URLs.",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "sitemap",
+        "crawler",
+        "link-checker",
+        "seo",
+        "nodejs",
+        "cli"
+    ],
+    "author": "Kaim Arvas",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.6.0",
+        "chalk": "^5.4.1",
+        "cheerio": "^1.0.0",
+        "p-limit": "^4.0.0",
+        "xlsx": "^0.18.5",
+        "xmlbuilder2": "^3.0.2"
+    }
+}
