@@ -36,11 +36,8 @@ import { sitemapUrls } from "./services/crawl.js";
   console.log(chalk.bgCyan(`🌐 Crawling started: ${validUrl.href}`));
   await crawl(validUrl.href);
   generateSitemap(sitemapUrls, filename);
-  if(error404Urls && Array.isArray(error404Urls) && error404Urls.length > 0) {
-    save404ErrorsToExcel(error404Urls);
-  }
-  if(error500Urls && Array.isArray(error500Urls) && error500Urls.length > 0) {
-    save500ErrorsToExcel(error500Urls);
-  }
+  save404ErrorsToExcel(error404Urls);
+  save500ErrorsToExcel(error500Urls);
+  
   console.log(chalk.green("✅ Crawling completed!"));
 })();
