@@ -5,19 +5,20 @@ export const visited = new Set();
 export const sitemapUrls = new Set();
 
 export default async function crawl(url) {
-  if (visited.has(url)) {
+ const decodedUrl = decodeURIComponent(url);
+  if (visited.has(decodedUrl)) {
     return;
   }
-  visited.add(url);
+  visited.add(decodedUrl);
 
-  const html = await fetchPage(url);
+  const html = await fetchPage(decodedUrl);
   if (!html) {
     return;
   }
 
-  sitemapUrls.add(url);
+  sitemapUrls.add(decodedUrl);
 
-  const links = extractLinks(html, url);
+  const links = extractLinks(html, decodedUrl);
   for (const link of links) {
     if (!visited.has(link)) {
       await crawl(link);
